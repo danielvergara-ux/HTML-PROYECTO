@@ -1,0 +1,25 @@
+/* styles.css
+   Proyecto: Hola Mundo centrado
+   Explicación: usamos Flexbox para centrar horizontal y verticalmente.
+*/
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  flex-direction: column;
+  gap: 12px;
+}
+h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+.hint {
+  color: #555;
+  font-size: 0.95rem;
+}
