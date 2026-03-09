@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora Básica</title>
+    <style>
+        /* ESTILOS PARA LA INTERFAZ */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .tarjeta-calculadora {
+            background-color: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            width: 400px;
+            text-align: center;
+        }
+
+        .entradas {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 45%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .botones-operacion {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #2563eb;
+        }
+
+        .resultado-final {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            font-size: 18px;
+            font-weight: bold;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="tarjeta-calculadora">
+        <div class="entradas">
+            <input type="number" id="n1" placeholder="Número 1">
+            <input type="number" id="n2" placeholder="Número 2">
+        </div>
+
+        <div class="botones-operacion">
+            <button onclick="calcular('sumar')">Sumar</button>
+            <button onclick="calcular('restar')">Restar</button>
+            <button onclick="calcular('multiplicar')">Multiplicar</button>
+            <button onclick="calcular('dividir')">Dividir</button>
+        </div>
+
+        <input type="text" id="res" class="resultado-final" placeholder="Resultado" readonly>
+    </div>
+
+    <script>
+        function calcular(tipo) {
+            const v1 = parseFloat(document.getElementById('n1').value);
+            const v2 = parseFloat(document.getElementById('n2').value);
+            const display = document.getElementById('res');
+
+            if (isNaN(v1) || isNaN(v2)) {
+                display.value = "Ingresa números";
+                return;
+            }
+
+            let total;
+            if (tipo === 'sumar') total = v1 + v2;
+            if (tipo === 'restar') total = v1 - v2;
+            if (tipo === 'multiplicar') total = v1 * v2;
+            if (tipo === 'dividir') {
+                total = v2 !== 0 ? v1 / v2 : "Error: Div / 0";
+            }
+
+            display.value = total;
+        }
+    </script>
+
+</body>
+</html>
