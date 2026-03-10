@@ -1,12 +1,10 @@
-/* styles.css
-   Proyecto: Hola Mundo centrado
-   Explicación: usamos Flexbox para centrar horizontal y verticalmente.
-*/
+
 html, body {
   height: 100%;
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
+
 .container {
   display: flex;
   align-items: center;
@@ -22,4 +20,38 @@ h1 {
 .hint {
   color: #555;
   font-size: 0.95rem;
+}
+
+/* Estilos de los contenedores */
+
+
+.padre {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 8px;
+}
+
+.hijo1 {
+    grid-column: span 4 / span 4;
+    align-items: center;
+}
+
+.hijo2 {
+    grid-row: span 2 / span 2;
+    grid-row-start: 2;
+    align-items: center;
+}
+
+.hijo3 {
+    grid-column: span 3 / span 3;
+    grid-row: span 2 / span 2;
+    grid-row-start: 2;
+    align-items: center;
+}
+
+.hijo4 {
+    grid-column: span 4 / span 4;
+    grid-row-start: 4;
+    align-items: center;
 }
